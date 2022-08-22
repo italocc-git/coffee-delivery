@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-gradient-to-r from-base-background to-base-white text-base-text dark:bg-[#09090A] dark:text-zinc-100;
+}
