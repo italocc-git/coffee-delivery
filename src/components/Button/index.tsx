@@ -10,7 +10,7 @@ export const Button = ({layout , title, icon : Icon} : ButtonProps) => {
     
     const ButtonSubmit = () => {
         return (
-            <button className="flex items-center justify-center gap-1 bg-product-yellow hover:bg-product-yellow-dark text-white w-32 h-11 rounded-md p-3 cursor-pointer transition-colors">{title}</button>
+            <button className="flex items-center justify-center gap-1 bg-product-yellow hover:bg-product-yellow-dark text-white  h-11 rounded-md p-3 cursor-pointer transition-colors w-full">{title}</button>
         )
     }
 
@@ -22,7 +22,10 @@ export const Button = ({layout , title, icon : Icon} : ButtonProps) => {
 
     const ButtonRemoveCart = () => {
         return (
-            <button className="flex items-center justify-center gap-1 bg-base-button hover:bg-base-hover text-base-title w-[91px] h-8 rounded-md px-2 cursor-pointer transition-colors">Icon {title}</button>
+            <button className="flex items-center justify-center gap-1 bg-base-button hover:bg-base-hover text-base-title  w-[91px]  rounded-lg py-[10px] cursor-pointer transition-colors"><Icon className="text-product-purple" size={18} /> 
+            <span className="text-xs text-base-text font-roboto">
+                {title}</span>
+            </button>
         )
     }
 

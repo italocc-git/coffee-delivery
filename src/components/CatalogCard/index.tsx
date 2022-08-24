@@ -1,7 +1,7 @@
-import coffeeExample from '../../assets/coffees/americano.png'
 import { Button } from '../Button';
-import {ShoppingCart , Plus , Minus} from 'phosphor-react'
+import {ShoppingCart } from 'phosphor-react'
 import { SelectQuantity } from '../SelectQuantity';
+import { useState } from 'react';
 interface CatalogCardProps {
     image: string;
     type: string[];
@@ -12,8 +12,10 @@ interface CatalogCardProps {
 }
 
 export const CatalogCard = ({image , type , title, description, price} : CatalogCardProps) => {
+    
+    
     return(
-        <div className="flex flex-col items-center justify-center gap-1 w-[256px] h-[310px] bg-base-card rounded-[6px] relative px-[20px] rounded-tr-[36px] rounded-bl-[36px]">  {/* rounded-tr-full rounded-bl-full */}
+        <div className="flex flex-col items-center justify-center gap-1 w-[256px] h-[310px] bg-base-card rounded-[6px] relative px-[20px] rounded-tr-[36px] rounded-bl-[36px]"> 
             <img src={image} alt="café americano" 
                 className='absolute top-[-20px] '
             />
@@ -26,7 +28,7 @@ export const CatalogCard = ({image , type , title, description, price} : Catalog
                 <div className='flex items-center justify-between gap-[20px] absolute bottom-4 '>
                     <span className='text-base-text text-sm font-roboto'>R$ <b className='text-[24px] font-extrabold font-baloo'>{price}</b></span>
                     
-                    <SelectQuantity />
+                    <SelectQuantity  />
                     <Button layout='addCart' icon={ShoppingCart} />
                 </div>
             
