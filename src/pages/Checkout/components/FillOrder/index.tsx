@@ -1,14 +1,25 @@
 import { MapPinLine , CurrencyDollar , CreditCard , Money, Bank } from "phosphor-react"
 import { Input } from "../../../../components/Input"
 import { SelectCreditCard } from "../../../../components/SelectCreditCard"
+import { useFormContext , UseFormReturn} from "react-hook-form";
+import { formProps , FormProps } from "../..";
 
-export const FillOrder = () => {
+interface FillOrderProps {
+    setPaymentMethod : (method: 'Cartão de Crédito' | 'Cartão de Débito' | 'Dinheiro') => void
+    form : UseFormReturn<FormProps> 
+    paymentMethod : 'Cartão de Crédito' | 'Cartão de Débito' | 'Dinheiro' | undefined
+}
+
+export const FillOrder = ({setPaymentMethod, paymentMethod, form}: FillOrderProps) => {
+    const { register, formState } = form;
+    const {errors} = formState
+    const errorClass = "text-red-500 text-xs font-roboto font-semibold"
     return (
-        <div >
+        <div className="flex-grow ">
             <h1 className="font-baloo text-lg font-bold text-base-subtitle mb-4 ">
                 Complete seu pedido
             </h1>
-            <div className="flex flex-wrap gap-3 flex-grow mr-10">
+            <div className="flex flex-wrap gap-3 mr-10">
                 <div className="bg-base-card rounded-[6px] p-10">
                     <div className="flex items-start gap-2 w-[560px] mb-6">
                         <MapPinLine className="text-product-yellow-dark" size={20} />
@@ -21,13 +32,28 @@ export const FillOrder = () => {
                     </div>
 
                     <div className="flex flex-wrap  gap-4 items-start ">
-                        <Input placeholder="CEP"  />
-                        <Input placeholder="Rua"  />
-                        <Input placeholder="Número" />
-                        <Input placeholder="Complemento" />
-                        <Input placeholder="Bairro" />
-                        <Input placeholder="Cidade" />
-                        <Input placeholder="UF" />
+                        <div className="flex flex-col ">
+                            <Input id='cep' placeholder="CEP" {...register('cep')} />
+                             {/*  {errors.cep && <span className={errorClass}>{errors.cep.message}</span>} */}
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <Input placeholder="Rua" {...register('street')}  />
+                           {/*  {errors.street && <span className={errorClass}>{errors.steet.message}</span>} */}
+                        </div>
+                        <div className="flex gap-4 w-full">
+                            <Input placeholder="Número" {...register('number')} />
+                            <Input placeholder="Complemento" style={{flex:1}} {...register('complement')} />
+                            {/* {errors.number && <span className={errorClass}>{errors.cep.message}</span> */}
+                        </div>
+                       
+                        <div className="flex  gap-4 w-full">
+                            <Input placeholder="Bairro" {...register('district')}  />
+                            <Input placeholder="Cidade" style={{flex:1}} {...register('city')}  />
+                            <Input placeholder="UF" {...register('state')} /> 
+                            {/* {errors.district && <span className={errorClass}>{errors.cep.message}</spa */}
+                        </div>
+                      
+                        
                         
                     </div>
                 </div>
@@ -45,9 +71,21 @@ export const FillOrder = () => {
                     </div>
 
                     <div className="flex items-center justify-center gap-3 w-full text-product-purple">
-                        <SelectCreditCard type="CARTÃO DE CRÉDITO" icon={CreditCard} />
-                        <SelectCreditCard type="CARTÃO DE DÉBITO" icon={Bank} />
-                        <SelectCreditCard type="DINHEIRO" icon={Money} />
+                        <SelectCreditCard method="CARTÃO DE CRÉDITO" icon={CreditCard} onClick={() => setPaymentMethod('Cartão de Crédito')}/>
+                        <SelectCreditCard method="CARTÃO DE DÉBITO" icon={Bank} onClick={() => setPaymentMethod('Cartão de Débito')} />
+                        <SelectCreditCard method="DINHEIRO" icon={Money} onClick={() => setPaymentMethod('Dinheiro')} />
+                    </div>
+                    <div className="mt-2 text-center ">
+                    {paymentMethod  ? (
+                            <span className="text-base-title text-xs font-semibold">
+                                {paymentMethod} selecionado
+                            </span>         
+                    )
+                     : <span className={errorClass}>
+                            Selecione a forma de pagamento
+                        </span>
+                    }
+                        
                     </div>
                 </div> 
             </div>

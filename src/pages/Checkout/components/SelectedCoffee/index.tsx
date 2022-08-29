@@ -1,29 +1,51 @@
+import { useFormContext, UseFormReturn } from "react-hook-form"
+import { FormProps } from "../.."
 import { Button } from "../../../../components/Button"
 import { Cart } from "../../../../components/Cart"
+import { useCart } from "../../../../hooks/useCart"
+import { priceFormatter } from "../../../../utils/formatter"
 
-export const SelectedCoffee = () => {
+
+interface SelectedCoffeeProps {
+     form : UseFormReturn<FormProps> 
+}
+
+export const SelectedCoffee = ({form} : SelectedCoffeeProps) => {
+    const {cart} = useCart()
+
+    const {handleSubmit, getValues } = form;
+
+    const sumTotalQuantity = cart.reduce(((acc , currentValue) => acc + currentValue.quantity * Number(String(currentValue.price).replace(',' , '.'))), 0)
+    
+
+    const handleSubmitCoffee = () => {
+        const data = getValues()
+        console.log(data)
+    }
+ 
     return(
-        <div className="flex flex-col gap-6 p-10 bg-base-card rounded-[6px] rounded-tr-[44px] rounded-bl-[44px] w-[800px]">
+        <form onSubmit={handleSubmit(handleSubmitCoffee)} className="flex flex-col gap-6 p-10 bg-base-card rounded-[6px] rounded-tr-[44px] rounded-bl-[44px] lg:w-[800px]">
             <div>
                 <Cart />
             </div>
             <div className="flex flex-col items-start gap-2 font-roboto">
                 <div className="flex justify-between w-full  text-base-text">
                     <span>Total de itens</span>
-                    <span>R$ 29,70</span>
+                    <span>{priceFormatter.format(sumTotalQuantity)}</span>
                 </div>
                 <div className="flex justify-between w-full  text-base-text">
                     <span>Entrega</span>
-                    <span>R$ 3,50</span>
+                    <span>{priceFormatter.format(3.5)}</span>
                 </div>
                 <div className="flex justify-between w-full  text-base-subtitle font-bold">
                     <span>Total</span>
-                    <span>R$ 33,20</span>
+                    <span>{sumTotalQuantity && priceFormatter.format(sumTotalQuantity + 3.5) }</span>
                 </div>
             </div>
+           
             <div>
-                <Button layout="submit" title="CONFIRMAR PEDIDO"  />
+                <Button layout="submit" type="submit" title="CONFIRMAR PEDIDO"  />
             </div>
-        </div>
+        </form>
     )
 }

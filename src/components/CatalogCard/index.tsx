@@ -2,18 +2,29 @@ import { Button } from '../Button';
 import {ShoppingCart } from 'phosphor-react'
 import { SelectQuantity } from '../SelectQuantity';
 import { useState } from 'react';
+import { useCart } from '../../hooks/useCart';
 interface CatalogCardProps {
+    id : number;
     image: string;
     type: string[];
     title: string;
     description : string;
     price: string;
-
+    quantity : number
 }
 
-export const CatalogCard = ({image , type , title, description, price} : CatalogCardProps) => {
+export const CatalogCard = (coffeeItem : CatalogCardProps) => {
     
+    const {image , type , title, description, price} = coffeeItem
+    const {addItemToCart} = useCart()
+    const [quantity, setQuantity] = useState(0)
+    const addCart = () => {
     
+        addItemToCart({
+            ...coffeeItem,
+            quantity 
+    })
+    }
     return(
         <div className="flex flex-col items-center justify-center gap-1 w-[256px] h-[310px] bg-base-card rounded-[6px] relative px-[20px] rounded-tr-[36px] rounded-bl-[36px]"> 
             <img src={image} alt="café americano" 
@@ -28,8 +39,8 @@ export const CatalogCard = ({image , type , title, description, price} : Catalog
                 <div className='flex items-center justify-between gap-[20px] absolute bottom-4 '>
                     <span className='text-base-text text-sm font-roboto'>R$ <b className='text-[24px] font-extrabold font-baloo'>{price}</b></span>
                     
-                    <SelectQuantity  />
-                    <Button layout='addCart' icon={ShoppingCart} />
+                    <SelectQuantity quantity={quantity} setQuantity={setQuantity}/>
+                    <Button layout='addCart' icon={ShoppingCart} onClick={addCart} />
                 </div>
             
         </div>
