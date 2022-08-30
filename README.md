@@ -24,5 +24,5 @@ Essa aplicação possui as seguintes funcionalidades :
  <li> Propriedades </li>
  <li> Componentização </li>
  
- 
+ <br/>
  Layout : https://www.figma.com/file/5yT9ZzZmRQRS4yivGGB3pl/Coffee-Delivery/duplicate
