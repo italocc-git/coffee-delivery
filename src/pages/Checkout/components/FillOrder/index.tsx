@@ -32,7 +32,7 @@ export const FillOrder = ({
   } = form
   const inputClass =
     'flex items-center gap-1 p-3 bg-base-input border border-base-button focus:outline-none focus:border focus:border-product-yellow-dark rounded-md max-h-[42px] text-base-text '
-  const errorClass = 'text-red-500 text-xs font-roboto font-semibold '
+  const errorClass = 'text-red-500 text-xs font-roboto font-semibold'
   return (
     <div className="flex-grow ">
       <h1 className="font-baloo text-lg font-bold text-base-subtitle mb-4 ">
@@ -50,38 +50,44 @@ export const FillOrder = ({
             </div>
           </div>
 
-          <div className="flex flex-wrap   gap-4 items-start ">
-            <div className="flex flex-col gap-1 ">
+          <div className="flex flex-wrap gap-2 items-start">
+            <div className="flex flex-col  ">
               <input
                 id="cep"
                 className={inputClass}
                 placeholder="CEP"
                 {...register('cep')}
               />
-              {errors.cep && (
-                <span className={errorClass}>{errors.cep.message}</span>
-              )}
+              <div className="h-4">
+                {errors.cep && (
+                  <span className={errorClass}>{errors.cep.message}</span>
+                )}
+              </div>
             </div>
-            <div className="flex flex-col w-full gap-1">
+            <div className="flex flex-col w-full">
               <input
                 className={inputClass}
                 placeholder="Rua"
                 {...register('street')}
               />
-              {errors.street && (
-                <span className={errorClass}>{errors.street.message}</span>
-              )}
+              <div className="h-4">
+                <span className={errorClass}>
+                  {errors.street && errors.street.message}
+                </span>
+              </div>
             </div>
             <div className="flex gap-4 w-full">
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col ">
                 <input
                   className={inputClass}
                   placeholder="Número"
                   {...register('number')}
                 />
-                {errors.number && (
-                  <span className={errorClass}>{errors.number.message}</span>
-                )}
+                <div className="h-4">
+                  {errors.number && (
+                    <span className={errorClass}>{errors.number.message}</span>
+                  )}
+                </div>
               </div>
               <input
                 className={inputClass}
@@ -92,35 +98,43 @@ export const FillOrder = ({
             </div>
 
             <div className="flex  gap-4 w-full">
-              <div className="flex flex-col gap-1 ">
+              <div className="flex flex-col  ">
                 <input
                   className={inputClass}
                   placeholder="Bairro"
                   {...register('district')}
                 />
-                {errors.district && (
-                  <span className={errorClass}>{errors.district.message}</span>
-                )}
+                <div className="h-4">
+                  {errors.district && (
+                    <span className={errorClass}>
+                      {errors.district.message}
+                    </span>
+                  )}
+                </div>
               </div>
-              <div className="flex flex-col gap-1 flex-grow ">
+              <div className="flex flex-col  flex-grow ">
                 <input
                   className={inputClass}
                   placeholder="Cidade"
                   {...register('city')}
                 />
-                {errors.city && (
-                  <span className={errorClass}>{errors.city.message}</span>
-                )}
+                <div className="h-4">
+                  {errors.city && (
+                    <span className={errorClass}>{errors.city.message}</span>
+                  )}
+                </div>
               </div>
-              <div className="flex flex-col gap-1 w-[60px]">
+              <div className="flex flex-col  w-[60px]">
                 <input
                   className={inputClass}
                   placeholder="UF"
                   {...register('uf')}
                 />
-                {errors.uf && (
-                  <span className={errorClass}>{errors.uf.message}</span>
-                )}
+                <div className="h-4">
+                  {errors.uf && (
+                    <span className={errorClass}>{errors.uf.message}</span>
+                  )}
+                </div>
               </div>
             </div>
           </div>
