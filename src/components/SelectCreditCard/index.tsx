@@ -13,7 +13,8 @@ export const SelectCreditCard = ({
   return (
     <button
       {...rest}
-      className="flex items-center gap-3 p-4 border border-base-button  border-hidden focus:border bg-base-button focus:outline-none focus:ring focus:ring-product-purple hover:bg-base-hover transition-colors rounded-[6px] cursor-pointer"
+      className="flex items-center justify-center gap-2 p-4 border border-base-button  border-hidden focus:border bg-base-button focus:outline-none focus:ring focus:ring-product-purple hover:bg-base-hover transition-colors rounded-[6px] cursor-pointer
+      w-full min-w-[160px]"
     >
       <Icon className="text-product-purple" size={16} />
       <span className="text-base-label font-roboto text-xs">{method}</span>

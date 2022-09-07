@@ -27,7 +27,7 @@ export const Checkout = () => {
   })
 
   return (
-    <div className="flex lg:flex-col lg:gap-6 justify-between px-[160px] lg:mb-11 ">
+    <div className="flex justify-between px-[160px] lg:flex-col lg:gap-6 md:px-[80px] sm:px-4 lg:mb-11 ">
       <FillOrder
         form={form}
         setPaymentMethod={setPaymentMethod}

@@ -39,8 +39,8 @@ export const CatalogCard = (coffeeItem: CatalogCardProps) => {
       </p>
 
       <div className="flex items-center justify-between gap-[20px] absolute bottom-4 ">
-        <span className="text-base-text text-sm font-roboto">
-          <b className="text-[24px] font-extrabold font-baloo">
+        <span className="text-base-text font-roboto">
+          <b className="text-[24px] sm:text-base font-extrabold font-baloo">
             {priceFormatter.format(price)}
           </b>
         </span>

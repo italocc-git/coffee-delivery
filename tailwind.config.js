@@ -2,8 +2,8 @@ module.exports = {
   content: ['./src/**/*.tsx'],
   theme: {
     screens: {
-      sm: '320px',
-      md: { max: '800px' },
+      sm: { min: '320px', max: '734px' },
+      md: { min: '735px', max: '1000px' },
       lg: { max: '1300px' },
       xl: '1300px',
     },

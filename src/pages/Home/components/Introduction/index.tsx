@@ -2,18 +2,18 @@ import CoffeeInto from '../../../../assets/coffee-introduction.png'
 import { ShoppingCart, Timer, Package, Coffee } from 'phosphor-react'
 export const Introduction = () => {
   return (
-    <div className="flex items-center justify-between h-[544px]">
-      <div className="min-w-[588px] ">
+    <div className="flex md:flex-col sm:flex-col items-center justify-between min-h-[544px]">
+      <div className="">
         <div className="flex flex-col items-start gap-4 mb-10">
-          <h1 className="text-5xl font-extrabold  text-base-title">
+          <h1 className="text-5xl  font-extrabold  text-base-title">
             Encontre o café perfeito para qualquer hora do dia
           </h1>
-          <span className="text-xl font-normal  text-base-subtitle">
+          <span className="text-xl  font-normal  text-base-subtitle">
             Com o Coffee Delivery você recebe seu café onde estiver a qualquer
             hora
           </span>
         </div>
-        <div className="flex flex-wrap items-center justify-between max-w-[700px]">
+        <div className="flex flex-wrap lg:flex-col lg:gap-4 items-baseline justify-between max-w-[700px]">
           <div className="">
             <div className="flex items-center gap-3 h-8 mb-4">
               <ShoppingCart
@@ -48,7 +48,7 @@ export const Introduction = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div className="mt-2">
         <img src={CoffeeInto} alt="coffee" width="476px" height="360px" />
       </div>
     </div>

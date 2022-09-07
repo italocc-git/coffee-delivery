@@ -7,7 +7,7 @@ export const Header = () => {
   const { cart, clearCoffeeListCart } = useCart()
 
   return (
-    <nav className="flex items-center justify-between h-[104px] px-[160px]">
+    <nav className="flex items-center justify-between h-[104px] px-[160px] md:px-[80px] sm:px-4 lg:mb-11 ">
       <Link to="/">
         <img src={logo} alt="logo" className="h-10" />
       </Link>

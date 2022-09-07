@@ -19,7 +19,7 @@ export const Success = () => {
 
   if (location.state) {
     return (
-      <div className="px-[160px]">
+      <div className="px-[160px] md:px-[80px] mb-10">
         <div className="flex flex-col gap-2">
           <h1 className="font-baloo font-extrabold text-[32px] text-product-yellow-dark">
             Uhu! Pedido confirmado
@@ -28,8 +28,8 @@ export const Success = () => {
             Agora é só aguardar que logo o café chegará até você
           </span>
         </div>
-        <div className="flex items-start justify-between w-full mt-10">
-          <div className="flex flex-col items-start p-10 gap-8 border-2 border-product-purple-dark rounded-[6px] rounded-tr-[36px] rounded-bl-[36px] w-[526px]">
+        <div className="flex sm:flex-col items-start justify-between w-full mt-10">
+          <div className="flex flex-col items-start p-10 gap-8 border-2 border-product-purple-dark rounded-[6px] rounded-tr-[36px] rounded-bl-[36px] max-w-[526px]">
             <div className="flex items-center gap-5">
               <MapPin
                 weight="fill"

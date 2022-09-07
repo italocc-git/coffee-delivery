@@ -33,10 +33,12 @@ export const Button = ({ layout, title, icon: Icon, ...rest }: ButtonProps) => {
     return (
       <button
         {...rest}
-        className="flex items-center justify-center gap-1 bg-base-button hover:bg-base-hover text-base-title  w-[91px]  rounded-lg py-2 cursor-pointer transition-colors"
+        className="flex items-center justify-center gap-1 bg-base-button hover:bg-base-hover text-base-title  max-w-[91px]  rounded-lg py-2 cursor-pointer transition-colors px-2"
       >
         <Icon className="text-product-purple" size={18} />
-        <span className="text-xs text-base-text font-roboto">{title}</span>
+        <span className="text-xs text-base-text font-roboto sm:hidden">
+          {title}
+        </span>
       </button>
     )
   }

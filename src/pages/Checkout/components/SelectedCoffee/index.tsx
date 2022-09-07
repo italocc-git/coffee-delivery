@@ -43,7 +43,7 @@ export const SelectedCoffee = ({
   return (
     <form
       onSubmit={handleSubmit(handleSubmitCoffee)}
-      className="flex flex-col gap-6 p-10 bg-base-card rounded-[6px] rounded-tr-[44px] rounded-bl-[44px] w-full"
+      className="flex flex-col gap-6 p-10 bg-base-card rounded-[6px] rounded-tr-[44px] rounded-bl-[44px]  min-w-[330px]"
     >
       <div>
         <Cart />

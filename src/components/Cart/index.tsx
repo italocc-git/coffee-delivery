@@ -18,7 +18,7 @@ export const Cart = () => {
               alt="coffee"
               className="w-[64px] h-[64px]"
             />
-            <div className="flex flex-col gap-1 w-full ">
+            <div className="flex flex-col  gap-1 w-full ">
               <div className="flex justify-between">
                 <h1 className="font-roboto text-base-subtitle text-sm">
                   {cartItem.title}

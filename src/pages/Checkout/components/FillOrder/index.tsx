@@ -34,13 +34,13 @@ export const FillOrder = ({
     'flex items-center gap-1 p-3 bg-base-input border border-base-button focus:outline-none focus:border focus:border-product-yellow-dark rounded-md max-h-[42px] text-base-text '
   const errorClass = 'text-red-500 text-xs font-roboto font-semibold'
   return (
-    <div className="flex-grow ">
+    <div className="flex-grow">
       <h1 className="font-baloo text-lg font-bold text-base-subtitle mb-4 ">
         Complete seu pedido
       </h1>
-      <div className="flex flex-wrap gap-3 mr-10">
-        <div className="bg-base-card rounded-[6px] p-10">
-          <div className="flex items-start gap-2 w-[560px] mb-6">
+      <div className="flex flex-wrap gap-3 mr-10 ">
+        <div className="bg-base-card rounded-[6px] p-10 w-full ">
+          <div className="flex items-start gap-2 max-w-[560px] mb-6">
             <MapPinLine className="text-product-yellow-dark" size={20} />
             <div className="flex flex-col gap-1 font-roboto">
               <span className="text-base-subtitle ">Endereço de Entrega</span>
@@ -50,8 +50,8 @@ export const FillOrder = ({
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-2 items-start">
-            <div className="flex flex-col  ">
+          <div className="flex flex-col gap-2 items-start">
+            <div className="flex  flex-col w-full max-w-[550px] ">
               <input
                 id="cep"
                 className={inputClass}
@@ -64,7 +64,7 @@ export const FillOrder = ({
                 )}
               </div>
             </div>
-            <div className="flex flex-col w-full">
+            <div className="flex flex-col w-full sm:max-w-[550px]">
               <input
                 className={inputClass}
                 placeholder="Rua"
@@ -76,8 +76,8 @@ export const FillOrder = ({
                 </span>
               </div>
             </div>
-            <div className="flex gap-4 w-full">
-              <div className="flex flex-col ">
+            <div className="flex sm:flex-col gap-2 w-full sm:max-w-[550px]">
+              <div className="flex flex-col  ">
                 <input
                   className={inputClass}
                   placeholder="Número"
@@ -89,16 +89,17 @@ export const FillOrder = ({
                   )}
                 </div>
               </div>
-              <input
-                className={inputClass}
-                placeholder="Complemento"
-                style={{ flex: 1 }}
-                {...register('complement')}
-              />
+              <div className="flex flex-col flex-grow ">
+                <input
+                  className={`${inputClass} mb-4`}
+                  placeholder="Complemento"
+                  {...register('complement')}
+                />
+              </div>
             </div>
 
-            <div className="flex  gap-4 w-full">
-              <div className="flex flex-col  ">
+            <div className="flex sm:flex-col  gap-2 w-full sm:max-w-[550px]">
+              <div className="flex flex-col   ">
                 <input
                   className={inputClass}
                   placeholder="Bairro"
@@ -112,7 +113,7 @@ export const FillOrder = ({
                   )}
                 </div>
               </div>
-              <div className="flex flex-col  flex-grow ">
+              <div className="flex flex-col  flex-grow  ">
                 <input
                   className={inputClass}
                   placeholder="Cidade"
@@ -124,7 +125,7 @@ export const FillOrder = ({
                   )}
                 </div>
               </div>
-              <div className="flex flex-col  w-[60px]">
+              <div className="flex flex-col  min-w-[60px]">
                 <input
                   className={inputClass}
                   placeholder="UF"
@@ -140,8 +141,8 @@ export const FillOrder = ({
           </div>
         </div>
 
-        <div className="bg-base-card rounded-[6px] p-10 w-full ">
-          <div className="flex items-start gap-2  w-[560px] mb-6">
+        <div className="bg-base-card rounded-[6px] p-10 ">
+          <div className="flex items-start gap-2  max-w-[560px] mb-6">
             <CurrencyDollar className="text-product-purple " size={20} />
             <div className="flex flex-col  gap-1 font-roboto">
               <span className="text-base-subtitle ">Pagamento</span>
@@ -152,7 +153,7 @@ export const FillOrder = ({
             </div>
           </div>
 
-          <div className="flex items-center justify-center gap-3 w-full text-product-purple">
+          <div className="flex sm:flex-col items-center justify-center gap-3 w-full max-w-[506px] text-product-purple">
             <SelectCreditCard
               method="CARTÃO DE CRÉDITO"
               icon={CreditCard}
