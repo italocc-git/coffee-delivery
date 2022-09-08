@@ -5,29 +5,18 @@ import {
   Money,
   Bank,
 } from 'phosphor-react'
-import { SelectCreditCard } from '../../../../components/SelectCreditCard'
-import { UseFormReturn } from 'react-hook-form'
+import { UseFormReturn, Controller } from 'react-hook-form'
 import { formProps } from '../..'
+import * as RadioGroup from '@radix-ui/react-radio-group'
 
 interface FillOrderProps {
-  setPaymentMethod: (
-    method: 'Cartão de Crédito' | 'Cartão de Débito' | 'Dinheiro',
-  ) => void
   form: UseFormReturn<formProps>
-  paymentMethod:
-    | 'Cartão de Crédito'
-    | 'Cartão de Débito'
-    | 'Dinheiro'
-    | undefined
 }
 
-export const FillOrder = ({
-  setPaymentMethod,
-  paymentMethod,
-  form,
-}: FillOrderProps) => {
+export const FillOrder = ({ form }: FillOrderProps) => {
   const {
     register,
+    control,
     formState: { errors },
   } = form
   const inputClass =
@@ -153,30 +142,56 @@ export const FillOrder = ({
             </div>
           </div>
 
-          <div className="flex sm:flex-col items-center justify-center gap-3 w-full max-w-[506px] text-product-purple">
-            <SelectCreditCard
-              method="CARTÃO DE CRÉDITO"
-              icon={CreditCard}
-              onClick={() => setPaymentMethod('Cartão de Crédito')}
-            />
-            <SelectCreditCard
-              method="CARTÃO DE DÉBITO"
-              icon={Bank}
-              onClick={() => setPaymentMethod('Cartão de Débito')}
-            />
-            <SelectCreditCard
-              method="DINHEIRO"
-              icon={Money}
-              onClick={() => setPaymentMethod('Dinheiro')}
-            />
-          </div>
+          <Controller
+            control={control}
+            name="paymentMethod"
+            render={({ field }) => {
+              return (
+                <RadioGroup.Root
+                  value={field.value}
+                  onValueChange={field.onChange}
+                  className="flex sm:flex-col items-center justify-center gap-3 w-full max-w-[506px] text-product-purple"
+                >
+                  <RadioGroup.Item
+                    value="credit"
+                    className="flex items-center justify-center gap-2 p-4 border border-base-button  border-hidden focus:border bg-base-button focus:outline-none focus:ring focus:ring-product-purple hover:bg-base-hover transition-colors rounded-[6px] cursor-pointer
+              w-full min-w-[160px]"
+                  >
+                    <CreditCard className="text-product-purple" size={16} />
+                    <span className="text-base-label font-roboto text-xs">
+                      {'CARTÃO DE CRÉDITO'}
+                    </span>
+                  </RadioGroup.Item>
+
+                  <RadioGroup.Item
+                    value="debit"
+                    className="flex items-center justify-center gap-2 p-4 border border-base-button  border-hidden focus:border bg-base-button focus:outline-none focus:ring focus:ring-product-purple hover:bg-base-hover transition-colors rounded-[6px] cursor-pointer
+              w-full min-w-[160px]"
+                  >
+                    <Bank className="text-product-purple" size={16} />
+                    <span className="text-base-label font-roboto text-xs">
+                      {'CARTÃO DE DÉBITO'}
+                    </span>
+                  </RadioGroup.Item>
+
+                  <RadioGroup.Item
+                    value="money"
+                    className="flex items-center justify-center gap-2 p-4 border border-base-button  border-hidden focus:border bg-base-button focus:outline-none focus:ring focus:ring-product-purple hover:bg-base-hover transition-colors rounded-[6px] cursor-pointer
+              w-full min-w-[160px]"
+                  >
+                    <Money className="text-product-purple" size={16} />
+                    <span className="text-base-label font-roboto text-xs">
+                      {'DINHEIRO'}
+                    </span>
+                  </RadioGroup.Item>
+                </RadioGroup.Root>
+              )
+            }}
+          />
+
           <div className="mt-2 text-center ">
-            {paymentMethod ? (
-              <span className="text-base-title text-xs font-semibold">
-                {paymentMethod} selecionado
-              </span>
-            ) : (
-              <span className={errorClass}>Selecione a forma de pagamento</span>
+            {errors.paymentMethod && (
+              <span className={errorClass}>{errors.paymentMethod.message}</span>
             )}
           </div>
         </div>

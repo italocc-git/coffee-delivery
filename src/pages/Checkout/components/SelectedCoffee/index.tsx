@@ -7,17 +7,9 @@ import { priceFormatter } from '../../../../utils/formatter'
 import { useNavigate } from 'react-router-dom'
 interface SelectedCoffeeProps {
   form: UseFormReturn<formProps>
-  paymentMethod:
-    | 'Cartão de Crédito'
-    | 'Cartão de Débito'
-    | 'Dinheiro'
-    | undefined
 }
 
-export const SelectedCoffee = ({
-  form,
-  paymentMethod,
-}: SelectedCoffeeProps) => {
+export const SelectedCoffee = ({ form }: SelectedCoffeeProps) => {
   const { cart } = useCart()
   const navigate = useNavigate()
   const { handleSubmit, getValues, reset } = form
@@ -27,13 +19,10 @@ export const SelectedCoffee = ({
   )
 
   const handleSubmitCoffee = () => {
-    if (paymentMethod === undefined) return
     const data = getValues()
-
     navigate('/success', {
       state: {
         ...data,
-        method: paymentMethod,
       },
     })
 
@@ -43,7 +32,7 @@ export const SelectedCoffee = ({
   return (
     <form
       onSubmit={handleSubmit(handleSubmitCoffee)}
-      className="flex flex-col gap-6 p-10 bg-base-card rounded-[6px] rounded-tr-[44px] rounded-bl-[44px]  min-w-[330px]"
+      className="flex flex-col gap-6 p-10 bg-base-card rounded-[6px] rounded-tr-[44px] rounded-bl-[44px]  min-w-[370px]"
     >
       <div>
         <Cart />

@@ -10,14 +10,20 @@ type FormProps = {
   district: string
   city: string
   uf: string
-  method: 'Cartão de Crédito' | 'Cartão de Débito' | 'Dinheiro' | undefined
+  paymentMethod: 'credit' | 'debit' | 'money'
 }
 export const Success = () => {
   const location = useLocation()
-  const { street, number, district, city, uf, method } =
+  const { street, number, district, city, uf, paymentMethod } =
     (location.state as FormProps) || {}
 
   if (location.state) {
+    const method = () => {
+      if (paymentMethod === 'credit') return 'Cartão de Crédito'
+      else if (paymentMethod === 'debit') return 'Cartão de Débito'
+      else return 'Dinheiro'
+    }
+
     return (
       <div className="px-[160px] md:px-[80px] mb-10">
         <div className="flex flex-col gap-2">
@@ -67,7 +73,7 @@ export const Success = () => {
               />
               <div className="flex flex-col">
                 <span>Pagamento na entrega </span>
-                <b>{method}</b>
+                <b>{method()}</b>
               </div>
             </div>
           </div>
