@@ -30,7 +30,7 @@ export const useCart = () => {
 
 export const CartContextProvider = ({ children }: CartContextProviderType) => {
   const [cart, setCart] = useState<CoffeeType[]>(() => {
-    const cartStorage = localStorage.getItem('@coffeeDelivery-dev:cart')
+    const cartStorage = localStorage.getItem(import.meta.env.VITE_STORAGE_KEY)
 
     if (cartStorage) {
       return JSON.parse(cartStorage)
@@ -61,7 +61,10 @@ export const CartContextProvider = ({ children }: CartContextProviderType) => {
       })
     }
 
-    localStorage.setItem('@coffeeDelivery-dev:cart', JSON.stringify(newCart))
+    localStorage.setItem(
+      import.meta.env.VITE_STORAGE_KEY,
+      JSON.stringify(newCart),
+    )
   }
 
   const increaseToCurrentCart = (item: CoffeeType) => {
@@ -106,7 +109,7 @@ export const CartContextProvider = ({ children }: CartContextProviderType) => {
     )
     setCart(cartUpdated)
     localStorage.setItem(
-      '@coffeeDelivery-dev:cart',
+      import.meta.env.VITE_STORAGE_KEY,
       JSON.stringify(cartUpdated),
     )
   }
