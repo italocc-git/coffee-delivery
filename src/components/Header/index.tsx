@@ -4,7 +4,7 @@ import { Button } from '../Button'
 import { Link } from 'react-router-dom'
 import { useCart } from '../../hooks/useCart'
 export const Header = () => {
-  const { cart, clearCoffeeListCart } = useCart()
+  const { cart } = useCart()
 
   return (
     <nav className="flex items-center justify-between h-[104px] px-[160px] md:px-[80px] sm:px-4 lg:mb-11 ">
@@ -17,11 +17,8 @@ export const Header = () => {
             weight="fill"
             className="text-product-purple-dark w-[22px] h-[22px]"
           />
-          <span
-            className="font-roboto text-sm cursor-pointer"
-            onClick={clearCoffeeListCart}
-          >
-            Mombaça, CE (clear)
+          <span className="font-roboto text-sm cursor-pointer">
+            Mombaça, CE
           </span>
         </div>
         <Link to="/checkout">

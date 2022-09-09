@@ -13,7 +13,6 @@ interface CoffeeType {
 interface CartContextType {
   cart: CoffeeType[]
   addItemToCart: (cart: CoffeeType) => void
-  clearCoffeeListCart: () => void /* temporario */
   removeItemToCart: (removedItem: CoffeeType) => void
   increaseToCurrentCart: (cartItem: CoffeeType) => void
   decreaseItemCart: (cartItem: CoffeeType) => void
@@ -101,10 +100,6 @@ export const CartContextProvider = ({ children }: CartContextProviderType) => {
     }
   }
 
-  const clearCoffeeListCart = () => {
-    localStorage.clear()
-  }
-
   const removeItemToCart = (itemRemoved: CoffeeType) => {
     const cartUpdated = cart.filter(
       (itemCart) => itemCart.id !== itemRemoved.id,
@@ -122,7 +117,6 @@ export const CartContextProvider = ({ children }: CartContextProviderType) => {
         {
           cart,
           addItemToCart,
-          clearCoffeeListCart,
           removeItemToCart,
           increaseToCurrentCart,
           decreaseItemCart,
