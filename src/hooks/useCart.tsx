@@ -82,6 +82,10 @@ export const CartContextProvider = ({ children }: CartContextProviderType) => {
           : item,
       )
       setCart(newCart)
+      localStorage.setItem(
+        import.meta.env.VITE_STORAGE_KEY,
+        JSON.stringify(newCart),
+      )
     }
   }
 
@@ -100,6 +104,10 @@ export const CartContextProvider = ({ children }: CartContextProviderType) => {
           : item,
       )
       setCart(newCart)
+      localStorage.setItem(
+        import.meta.env.VITE_STORAGE_KEY,
+        JSON.stringify(newCart),
+      )
     }
   }
 
