@@ -23,6 +23,7 @@ Essa aplicação possui as seguintes funcionalidades :
  <li> Listas e chaves no ReactJS </li>
  <li> Propriedades </li>
  <li> Componentização </li>
+ <li> Responsividade </li>
  
  <br/>
- Layout : https://www.figma.com/file/5yT9ZzZmRQRS4yivGGB3pl/Coffee-Delivery/duplicate
+ Layout : https://www.figma.com/file/5yT9ZzZmRQRS4yivGGB3pl/Coffee-Delivery
