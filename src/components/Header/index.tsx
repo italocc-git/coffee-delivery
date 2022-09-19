@@ -75,9 +75,11 @@ export const Header = () => {
           {isLoading ? (
             <CircleNotch className="animate-spin" weight="fill" />
           ) : (
-            <span className="font-roboto text-sm cursor-pointer">
-              {geCodeData.area}, {geCodeData.region}
-            </span>
+            geCodeData.area && (
+              <span className="font-roboto text-sm">
+                {geCodeData.area}, {geCodeData.region}
+              </span>
+            )
           )}
         </div>
         <Link to="/checkout">
