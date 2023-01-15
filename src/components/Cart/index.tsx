@@ -4,7 +4,7 @@ import { priceFormatter } from '../../utils/formatter'
 import { Button } from '../Button'
 import { SelectQuantity } from '../SelectQuantity'
 export const Cart = () => {
-  const { cart, removeItemToCart } = useCart()
+  const { cart, removeItemFromCart } = useCart()
   return (
     <>
       {cart.map((cartItem) => (
@@ -38,7 +38,7 @@ export const Cart = () => {
                   layout="removeCart"
                   icon={Trash}
                   title="REMOVER"
-                  onClick={() => removeItemToCart(cartItem)}
+                  onClick={() => removeItemFromCart(cartItem)}
                 />
               </div>
             </div>

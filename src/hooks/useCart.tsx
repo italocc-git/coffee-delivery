@@ -13,7 +13,7 @@ interface CoffeeType {
 interface CartContextType {
   cart: CoffeeType[]
   addItemToCart: (cart: CoffeeType) => void
-  removeItemToCart: (removedItem: CoffeeType) => void
+  removeItemFromCart: (removedItem: CoffeeType) => void
   increaseToCurrentCart: (cartItem: CoffeeType) => void
   decreaseItemCart: (cartItem: CoffeeType) => void
 }
@@ -90,6 +90,8 @@ export const CartContextProvider = ({ children }: CartContextProviderType) => {
   }
 
   const decreaseItemCart = (item: CoffeeType) => {
+    if (item.quantity <= 0) return
+
     const findSelectedCoffeeQuantity = cart.find(
       (coffee) => coffee.id === item.id,
     )
@@ -111,7 +113,7 @@ export const CartContextProvider = ({ children }: CartContextProviderType) => {
     }
   }
 
-  const removeItemToCart = (itemRemoved: CoffeeType) => {
+  const removeItemFromCart = (itemRemoved: CoffeeType) => {
     const cartUpdated = cart.filter(
       (itemCart) => itemCart.id !== itemRemoved.id,
     )
@@ -128,7 +130,7 @@ export const CartContextProvider = ({ children }: CartContextProviderType) => {
         {
           cart,
           addItemToCart,
-          removeItemToCart,
+          removeItemFromCart,
           increaseToCurrentCart,
           decreaseItemCart,
         } as CartContextType
