@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import { Button } from '.'
 import { ShoppingCart, Trash } from 'phosphor-react'
 
@@ -83,19 +82,7 @@ describe('Button Component', () => {
     
    })
 
-   it('should remove coffee item', () => {
-
-   // Para fazer o teste de remoção , eu preciso simular a criação de um item específico no carrinho antes.
-   const {getByText} = render( <Button layout="removeCart" icon={Trash} title='REMOVER' />)
-
-   const button = getByText('REMOVER')
-
-   /* const removeItemToCart = jest.fn(); */
-
-   userEvent.click(button)
-   /* expect(removeItemToCart).toHaveBeenCalledWith() */
-   
-  })
+  
    
 })
  

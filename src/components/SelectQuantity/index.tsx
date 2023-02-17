@@ -44,7 +44,9 @@ export const SelectQuantity = ({
         />
       </button>
 
-      <span className="text-xs">{quantity}</span>
+      <span className="text-xs" data-testid="quantity">
+        {quantity}
+      </span>
       <button onClick={increaseAmount}>
         <Plus
           className="text-product-purple hover:text-product-purple-dark font-bold cursor-pointer"
