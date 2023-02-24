@@ -32,10 +32,7 @@ A aplicação consiste em gerenciar um carrinho de compras de uma cafeteria fict
  <li> Validação de Formulário </li>
  <li> ContextAPI </li>
  <li> LocalStorage </li>
- <li> Imutabilidade do estado </li>
- <li> Listas e chaves no ReactJS </li>
- <li> Propriedades </li>
- <li> Componentização </li>
+ <li> TailwindCSS </li>
  <li> Responsividade </li>
  
  # Como executar o projeto
