@@ -2,58 +2,58 @@
 
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/italocc-git/coffee-delivery/blob/main/LICENSE) 
 
-# Sobre o projeto
+# About the project
 
 https://coffee-delivery-sable.vercel.app/
 
-Coffee Delivery é uma aplicação criada em React e foi um desafio proposto no curso ignite 2022 pela empresa [Rocketseat](https://app.rocketseat.com.br/ "Site da Rocketseat")
+Coffee Delivery is an application created in React and was a challenge proposed in the ignite course by the company [Rocketseat](https://app.rocketseat.com.br/ "Site da Rocketseat")
 
-A aplicação consiste em gerenciar um carrinho de compras de uma cafeteria fictícia, seguindo o modelo do [Figma](https://www.figma.com/file/5yT9ZzZmRQRS4yivGGB3pl/Coffee-Delivery "Modelo do figma") para construção .<b> <i>Toda a aplicação foi construída do zero </i> </b>
+The application consists of managing a shopping cart for a fictitious coffee shop, following the [Figma model](https://www.figma.com/file/5yT9ZzZmRQRS4yivGGB3pl/Coffee-Delivery "Modelo do figma") for layout construction .<b> <i>The entire application was built from scratch </i> </b>
 
 ## Layout web
 ![Web](https://github.com/italocc-git/coffee-delivery/blob/main/src/assets/gif/gif-coffee-delivery.gif)
 
-## Funcionalidades 
+## Features
 
 <ul>
-  <li>Listagem de produtos (cafés) disponíveis para compra </li>
-  <li>Adicionar uma quantidade específicas de itens no carrinho </li>
-  <li>Aumentar ou remover a quantidade de itens no carrinho </li>
-  <li>Formulário para o usuário preencher o seu endereço </li>
-  <li>Exibir o total de itens no carrinho no Header </li>
-  <li>Exibir o valor total da soma de itens no carrinho multiplicados pelo valor </li>
- </ul>
+   <li>List of products (coffees) available for purchase </li>
+   <li>Add a specific quantity of items to the cart </li>
+   <li>Increase or remove the quantity of items in the cart </li>
+   <li>Form for the user to fill in his address </li>
+   <li>Display total items in cart in Header </li>
+   <li>Display the sum total value of items in the cart multiplied by the value </li>
+  </ul>
  
-# Tecnologias utilizadas
+# Technologies
 
 ## Front end : 
  <li> HTML / CSS / Typescript / React
- <li> Estados controlados e não controlados </li>
- <li> Validação de Formulário </li>
+ <li> Controlled and Uncontrolled states </li>
+ <li> Form Validation </li>
  <li> ContextAPI </li>
  <li> LocalStorage </li>
  <li> TailwindCSS </li>
- <li> Responsividade </li>
+ <li> Responsivity </li>
  
- # Como executar o projeto
+ # How to run the project
  
- Pré-requisitos: npm / yarn
+ Prerequisites: npm / yarn
 
 ```bash
-# clonar repositório
+# clone the git repository
 git clone https://github.com/italocc-git/coffee-delivery.git
 
-# entrar na pasta do projeto coffee-delivery
+# enter the project folder called 'coffee-delivery'
 cd coffee-delivery
 
-# instalar dependências
+# install dependencies
 yarn install / npm install
 
-# executar o projeto
+# run the project
 yarn start / npm run start
 ```
  
-# Autor
+# Author
 
 Italo Costa Cavalcante
 
